@@ -56,7 +56,7 @@ document
     event.preventDefault(); // Prevent form from refreshing the page
 
     // Replace with your FormSubmit email handler
-    const formAction = "https://formsubmit.co/3b68280285ba5a6fe30c2239beb05da7";
+    const formAction = "https://formsubmit.co/prathampmahajan28@gmail.com";
 
     const formData = new FormData(this);
 
