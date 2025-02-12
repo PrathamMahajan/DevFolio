@@ -86,3 +86,98 @@ document.addEventListener("DOMContentLoaded", function () {
     navMenu.classList.toggle("active");
   });
 });
+
+// Dark Mode Toggle
+const darkModeToggle = document.getElementById("dark-mode-toggle");
+const body = document.body;
+
+// Check for saved user preference in localStorage
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme === "dark") {
+  body.classList.add("dark-mode");
+  darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Sun icon for light mode
+}
+
+// Toggle Dark Mode
+darkModeToggle.addEventListener("click", () => {
+  body.classList.toggle("dark-mode");
+  const isDarkMode = body.classList.contains("dark-mode");
+
+  // Save user preference in localStorage
+  localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+
+  // Update the toggle button icon
+  darkModeToggle.innerHTML = isDarkMode
+    ? '<i class="fas fa-sun"></i>'
+    : '<i class="fas fa-moon"></i>';
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const menuIcon = document.getElementById('menu-icon');
+    const navMenu = document.getElementById('nav-menu');
+    const navLinks = navMenu.querySelectorAll('a'); // Select all the links inside the menu
+
+    menuIcon.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        menuIcon.classList.toggle('active');
+    });
+
+    // Close the menu when a link is clicked
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            menuIcon.classList.remove('active');
+        });
+    });
+
+    // Close the menu on scroll
+    window.addEventListener('scroll', () => {
+        if (navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            menuIcon.classList.remove('active');
+        }
+    });
+
+    // Optional: Close menu when clicking outside of it (useful on larger screens)
+    document.addEventListener('click', (event) => {
+        if (navMenu.classList.contains('active') && !navMenu.contains(event.target) && !menuIcon.contains(event.target)) {
+            navMenu.classList.remove('active');
+            menuIcon.classList.remove('active');
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const menuIcon = document.getElementById('menu-icon');
+  const navMenu = document.getElementById('nav-menu');
+  const navLinks = navMenu.querySelectorAll('a'); // Select all the links inside the menu
+
+  menuIcon.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      menuIcon.classList.toggle('active');
+  });
+
+  // Close the menu when a link is clicked
+  navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+          navMenu.classList.remove('active');
+          menuIcon.classList.remove('active');
+      });
+  });
+
+  // Close the menu on scroll
+  window.addEventListener('scroll', () => {
+      if (navMenu.classList.contains('active')) {
+          navMenu.classList.remove('active');
+          menuIcon.classList.remove('active');
+      }
+  });
+
+  // Optional: Close menu when clicking outside of it (useful on larger screens)
+  document.addEventListener('click', (event) => {
+      if (navMenu.classList.contains('active') && !navMenu.contains(event.target) && !menuIcon.contains(event.target)) {
+          navMenu.classList.remove('active');
+          menuIcon.classList.remove('active');
+      }
+  });
+});
