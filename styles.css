@@ -480,6 +480,37 @@ body.dark-mode .project-link:hover {
     background-color: #7b93ea;
 }
 
+.projects-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 10px;
+    justify-content: flex-start;
+    scroll-behavior: smooth;
+}
+
+.projects-container::-webkit-scrollbar {
+    margin: 1%;
+    height: 20px;
+    width: 50px;
+}
+
+.projects-container::-webkit-scrollbar-track {
+    background: #e0e0e0;
+}
+
+.projects-container::-webkit-scrollbar-thumb {
+    background: #cad6ff;
+    border-radius: 1px;
+    transition: background 0.3s;
+}
+
+.projects-container::-webkit-scrollbar-thumb:hover {
+    background: #a7bcff;
+}
+
+
 .skills-section {
     text-align: center;
     padding: 70px;
@@ -821,4 +852,3 @@ body.dark-mode .dark-mode-toggle {
         margin: 10px 0;
     }
 }
-
